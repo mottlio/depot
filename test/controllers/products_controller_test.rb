@@ -16,6 +16,8 @@ class ProductsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+    assert_select '.products .list_line_odd', 2
+    assert_select 'dt', 'MyString'
   end
 
   test "should get new" do
