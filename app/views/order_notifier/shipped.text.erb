@@ -1,0 +1,9 @@
+Dear <%= @order.name %>
+
+Thank you for your recent order from the Tango Lingo store.
+
+You ordered the following items:
+
+<%= render @order.line_items %>
+
+Your order has just shipped.

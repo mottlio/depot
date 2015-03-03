@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :line_items
+  has_many :orders, through: :line_items
   before_destroy :ensure_no_line_items
   validates :image_url, uniqueness: true
   validates :title, :description, :image_url, presence: true
