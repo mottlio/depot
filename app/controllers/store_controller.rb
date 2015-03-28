@@ -4,9 +4,13 @@ class StoreController < ApplicationController
   include CurrentCart
   before_action :set_cart
   def index
-    @products = Product.order(:price)
-    @count = increment_count
-    @shown_message = "You've been here #{@count} times" if @count >= 5
+    if params[:set_locale]
+      redirect_to store_url(locale: params[:set_locale])
+    else
+      @products = Product.order(:price)
+      @count = increment_count
+      @shown_message = "You've been here #{@count} times" if @count >= 5
+    end
   end
 
 
